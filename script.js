@@ -1,7 +1,7 @@
 let cart = [];
 let totalAmount = 0;
 // Updated Phone Number
-const phoneNo = "917037943122";
+const phoneNo = "919310268055";
 
 // Adding Items
 function addToCart(itemName, price) {
