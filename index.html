@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hills Momo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO SECTION (Updated for vertical video) -->
+    <div class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="cafe.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>The Hills Momo</h1>
+            <p>Authentic Taste of Mountains</p>
+        </div>
+    </div>
+
+    <!-- QUICK OPTIONS -->
+    <div class="quick-options">
+        <div class="opt-btn glass" onclick="scrollToMenu()">
+            <span>📜</span><br>Menu
+        </div>
+        <div class="opt-btn glass" onclick="openModal('bookingModal')">
+            <span>🪑</span><br>Book Table
+        </div>
+        <div class="opt-btn glass" onclick="openModal('cancelModal')">
+            <span>❌</span><br>Cancel Order
+        </div>
+        <div class="opt-btn glass" onclick="openModal('followModal')">
+            <span>⭐</span><br>Follow
+        </div>
+    </div>
+
+    <!-- MENU SECTION -->
+    <div id="menu" class="menu-section">
+        <h2 class="section-title">Our Menu</h2>
+
+        <!-- SIGNATURE MOMOS -->
+        <h3 class="category-title">Signature Momos (Half / Full)</h3>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Veg Steam Momo</h3><p>₹40 / ₹80</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Veg Steam Momo (Half)', 40)">Half +</button> <button class="add-btn" onclick="addToCart('Veg Steam Momo (Full)', 80)">Full +</button></div>
+        </div>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Veg Kurkure Momo</h3><p>₹60 / ₹120</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Veg Kurkure Momo (Half)', 60)">Half +</button> <button class="add-btn" onclick="addToCart('Veg Kurkure Momo (Full)', 120)">Full +</button></div>
+        </div>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Paneer Steam Momo</h3><p>₹60 / ₹120</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Paneer Steam Momo (Half)', 60)">Half +</button> <button class="add-btn" onclick="addToCart('Paneer Steam Momo (Full)', 120)">Full +</button></div>
+        </div>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Paneer Kurkure Momo</h3><p>₹80 / ₹160</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Paneer Kurkure Momo (Half)', 80)">Half +</button> <button class="add-btn" onclick="addToCart('Paneer Kurkure Momo (Full)', 160)">Full +</button></div>
+        </div>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Chicken Steam Momo</h3><p>₹60 / ₹120</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Chicken Steam Momo (Half)', 60)">Half +</button> <button class="add-btn" onclick="addToCart('Chicken Steam Momo (Full)', 120)">Full +</button></div>
+        </div>
+        <div class="menu-item glass">
+            <div class="item-details"><h3>Chicken Kurkure Momo</h3><p>₹80 / ₹160</p></div>
+            <div class="add-group"><button class="add-btn" onclick="addToCart('Chicken Kurkure Momo (Half)', 80)">Half +</button> <button class="add-btn" onclick="addToCart('Chicken Kurkure Momo (Full)', 160)">Full +</button></div>
+        </div>
+
+        <!-- WAFFLES -->
+        <h3 class="category-title">Waffles</h3>
+        <div class="menu-item glass"><div class="item-details"><h3>Choco Milk Waffle</h3><p>₹100</p></div><button class="add-btn single-add" onclick="addToCart('Choco Milk Waffle', 100)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Nutella Waffle</h3><p>₹120</p></div><button class="add-btn single-add" onclick="addToCart('Nutella Waffle', 120)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Triple Mix Waffle</h3><p>₹120</p></div><button class="add-btn single-add" onclick="addToCart('Triple Mix Waffle', 120)">Add +</button></div>
+
+        <!-- PIZZA -->
+        <h3 class="category-title">Pizza</h3>
+        <div class="menu-item glass"><div class="item-details"><h3>Veg Pizza</h3><p>₹130</p></div><button class="add-btn single-add" onclick="addToCart('Veg Pizza', 130)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Corn Pizza</h3><p>₹130</p></div><button class="add-btn single-add" onclick="addToCart('Corn Pizza', 130)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Margherita Pizza</h3><p>₹130</p></div><button class="add-btn single-add" onclick="addToCart('Margherita Pizza', 130)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Onion Pizza</h3><p>₹130</p></div><button class="add-btn single-add" onclick="addToCart('Onion Pizza', 130)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Capsicum Pizza</h3><p>₹130</p></div><button class="add-btn single-add" onclick="addToCart('Capsicum Pizza', 130)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Double Cheese Pizza</h3><p>₹150</p></div><button class="add-btn single-add" onclick="addToCart('Double Cheese Pizza', 150)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Paneer Pizza</h3><p>₹150</p></div><button class="add-btn single-add" onclick="addToCart('Paneer Pizza', 150)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Chicken Pizza</h3><p>₹150</p></div><button class="add-btn single-add" onclick="addToCart('Chicken Pizza', 150)">Add +</button></div>
+
+        <!-- BURGERS -->
+        <h3 class="category-title">Burgers</h3>
+        <div class="menu-item glass"><div class="item-details"><h3>Veg Burger</h3><p>₹50</p></div><button class="add-btn single-add" onclick="addToCart('Veg Burger', 50)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Veg Cheese Burger</h3><p>₹60</p></div><button class="add-btn single-add" onclick="addToCart('Veg Cheese Burger', 60)">Add +</button></div>
+
+        <!-- SHAKES & DRINKS -->
+        <h3 class="category-title">Shakes & Drinks</h3>
+        <div class="menu-item glass"><div class="item-details"><h3>Hot Coffee</h3><p>₹30</p></div><button class="add-btn single-add" onclick="addToCart('Hot Coffee', 30)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Cold Drink</h3><p>₹25</p></div><button class="add-btn single-add" onclick="addToCart('Cold Drink', 25)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Cold Coffee</h3><p>₹70</p></div><button class="add-btn single-add" onclick="addToCart('Cold Coffee', 70)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Vanilla Shake</h3><p>₹70</p></div><button class="add-btn single-add" onclick="addToCart('Vanilla Shake', 70)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Strawberry Shake</h3><p>₹70</p></div><button class="add-btn single-add" onclick="addToCart('Strawberry Shake', 70)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Chocolate Shake</h3><p>₹70</p></div><button class="add-btn single-add" onclick="addToCart('Chocolate Shake', 70)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Butterscotch Shake</h3><p>₹70</p></div><button class="add-btn single-add" onclick="addToCart('Butterscotch Shake', 70)">Add +</button></div>
+
+        <!-- ADD-ONS -->
+        <h3 class="category-title">Add-Ons</h3>
+        <div class="menu-item glass"><div class="item-details"><h3>Chutney Dip</h3><p>₹5</p></div><button class="add-btn single-add" onclick="addToCart('Chutney Dip', 5)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Mayonnaise Dip</h3><p>₹5</p></div><button class="add-btn single-add" onclick="addToCart('Mayonnaise Dip', 5)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Extra Cheese</h3><p>₹10</p></div><button class="add-btn single-add" onclick="addToCart('Extra Cheese', 10)">Add +</button></div>
+        <div class="menu-item glass"><div class="item-details"><h3>Leftover Packing</h3><p>₹10</p></div><button class="add-btn single-add" onclick="addToCart('Leftover Packing', 10)">Add +</button></div>
+    </div>
+
+    <!-- FLOATING CART -->
+    <div class="bottom-cart glass" id="bottomCart" style="display: none;">
+        <div class="cart-info">
+            <h4>Total Items: <span id="cart-count">0</span></h4>
+            <h2>₹ <span id="total-price">0</span></h2>
+        </div>
+        <button class="checkout-btn" onclick="openModal('checkoutModal')">Checkout</button>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content glass">
+            <h2>Your Order 🍽️</h2>
+            <div id="order-summary" class="order-summary-box"></div>
+            <h3>Total: ₹<span id="modal-total">0</span></h3>
+            
+            <input type="text" id="custName" class="input-field" placeholder="Your Name" required>
+            <input type="number" id="custTable" class="input-field" placeholder="Table No." required>
+            
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="clearCart()">Clear Cart</button>
+                <button class="submit-btn" onclick="sendOrderToWhatsApp()">Send Order</button>
+            </div>
+            <button class="close-btn" style="margin-top:10px; width:100%; padding:10px; border-radius:8px; border:none; background:#555; color:white;" onclick="closeModal('checkoutModal')">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- CANCEL ORDER MODAL -->
+    <div class="modal-overlay" id="cancelModal">
+        <div class="modal-content glass">
+            <h2 style="color: #ff4d4d;">Cancel Order ❌</h2>
+            <p style="font-size: 14px; margin-bottom: 15px; text-align: center;">Need to cancel an order you just placed?</p>
+            <input type="text" id="cancelName" class="input-field" placeholder="Your Name" required>
+            <input type="number" id="cancelTable" class="input-field" placeholder="Table No." required>
+            
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('cancelModal')" style="background: #555;">Back</button>
+                <button class="submit-btn" onclick="sendCancelToWhatsApp()" style="background: #ff4d4d;">Cancel Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOK TABLE MODAL -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content glass">
+            <h2>Book a Table 🪑</h2>
+            <input type="text" id="bookName" class="input-field" placeholder="Your Name">
+            <input type="tel" id="bookPhone" class="input-field" placeholder="Phone Number">
+            <input type="number" id="bookTable" class="input-field" placeholder="Preferred Table No. (Optional)">
+            <input type="number" id="bookGuest" class="input-field" placeholder="Total Guests">
+            <input type="datetime-local" id="bookDate" class="input-field">
+            
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('bookingModal')">Cancel</button>
+                <button class="submit-btn" onclick="sendBookingToWhatsApp()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOLLOW / REVIEW MODAL -->
+    <div class="modal-overlay" id="followModal">
+        <div class="modal-content glass">
+            <h2>Support Us ❤️</h2>
+            <a href="https://instagram.com" target="_blank" class="insta-btn">📸 Follow on Instagram</a>
+            
+            <h3 style="margin-top:20px; font-size:16px;">Leave a Review</h3>
+            <select id="revExperience" class="input-field">
+                <option value="" disabled selected>Experience</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Bad">Bad</option>
+            </select>
+            <select id="revFood" class="input-field">
+                <option value="" disabled selected>Food Quality</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Average">Average</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+            </select>
+            <select id="revBehavior" class="input-field">
+                <option value="" disabled selected>Staff Behavior</option>
+                <option value="Polite">Polite & Friendly</option>
+                <option value="Okay">Okay</option>
+                <option value="Rude">Rude</option>
+            </select>
+            
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('followModal')" style="background: #555;">Close</button>
+                <button class="submit-btn" onclick="submitReview()">Post to Google</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
