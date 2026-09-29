@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- HERO SECTION (Updated for vertical video) -->
+    <!-- HERO SECTION -->
     <div class="hero">
         <video autoplay loop muted playsinline class="hero-video">
             <source src="cafe.mp4" type="video/mp4">
@@ -107,19 +107,22 @@
         <div class="menu-item glass"><div class="item-details"><h3>Leftover Packing</h3><p>₹10</p></div><button class="add-btn single-add" onclick="addToCart('Leftover Packing', 10)">Add +</button></div>
     </div>
 
-    <!-- FLOATING CART -->
+    <!-- FLOATING CART (Updated with Dine-In & Take Away) -->
     <div class="bottom-cart glass" id="bottomCart" style="display: none;">
         <div class="cart-info">
             <h4>Total Items: <span id="cart-count">0</span></h4>
             <h2>₹ <span id="total-price">0</span></h2>
         </div>
-        <button class="checkout-btn" onclick="openModal('checkoutModal')">Checkout</button>
+        <div class="cart-buttons">
+            <button class="checkout-btn" onclick="openModal('checkoutModal')">Dine-In</button>
+            <button class="checkout-btn" style="background: #00cc99; color: white;" onclick="openModal('takeawayModal')">Take Away</button>
+        </div>
     </div>
 
-    <!-- CHECKOUT MODAL -->
+    <!-- 1. CHECKOUT MODAL (Dine-In) -->
     <div class="modal-overlay" id="checkoutModal">
         <div class="modal-content glass">
-            <h2>Your Order 🍽️</h2>
+            <h2>Dine-In Order 🍽️</h2>
             <div id="order-summary" class="order-summary-box"></div>
             <h3>Total: ₹<span id="modal-total">0</span></h3>
             
@@ -134,13 +137,47 @@
         </div>
     </div>
 
-    <!-- CANCEL ORDER MODAL -->
+    <!-- 2. TAKE AWAY MODAL -->
+    <div class="modal-overlay" id="takeawayModal">
+        <div class="modal-content glass">
+            <h2 style="color: #00cc99;">Take Away 🛍️</h2>
+            <div id="takeaway-summary" class="order-summary-box"></div>
+            <h3>Total: ₹<span id="takeaway-total">0</span></h3>
+            
+            <!-- STEP 1: Details -->
+            <div id="takeaway-form-step">
+                <input type="text" id="takeName" class="input-field" placeholder="Your Name" required>
+                <input type="tel" id="takePhone" class="input-field" placeholder="Phone Number" required>
+                
+                <div class="modal-buttons">
+                    <button class="cancel-btn" onclick="closeModal('takeawayModal')">Cancel</button>
+                    <button class="submit-btn" style="background: #00cc99;" onclick="showTakeawayPayment()">Proceed to Payment</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: QR Code & WhatsApp -->
+            <div id="takeaway-qr-step" style="display: none; text-align: center;">
+                <div style="background: #121212; padding: 15px; border-radius: 10px; border: 1px dashed #00cc99; margin: 15px 0;">
+                    <p style="font-size: 14px; margin-bottom: 8px; color: #ccc;">Scan & Pay via UPI</p>
+                    <img src="qr.jpg" alt="UPI QR Code" style="max-width: 150px; border-radius: 8px;">
+                </div>
+                <p style="font-size: 13px; color: #ff9f1c; margin-bottom: 15px;">Payment ke baad screenshot lein aur niche WhatsApp button par click karke bhejein 👇</p>
+                
+                <div class="modal-buttons">
+                    <button class="cancel-btn" style="background:#555;" onclick="backToTakeawayForm()">Back</button>
+                    <button class="submit-btn" style="background: #25D366;" onclick="sendTakeawayToWhatsApp()">Send via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. CANCEL ORDER MODAL -->
     <div class="modal-overlay" id="cancelModal">
         <div class="modal-content glass">
             <h2 style="color: #ff4d4d;">Cancel Order ❌</h2>
             <p style="font-size: 14px; margin-bottom: 15px; text-align: center;">Need to cancel an order you just placed?</p>
             <input type="text" id="cancelName" class="input-field" placeholder="Your Name" required>
-            <input type="number" id="cancelTable" class="input-field" placeholder="Table No." required>
+            <input type="number" id="cancelTable" class="input-field" placeholder="Table / Phone No." required>
             
             <div class="modal-buttons">
                 <button class="cancel-btn" onclick="closeModal('cancelModal')" style="background: #555;">Back</button>
@@ -149,7 +186,7 @@
         </div>
     </div>
 
-    <!-- BOOK TABLE MODAL -->
+    <!-- 4. BOOK TABLE MODAL -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-content glass">
             <h2>Book a Table 🪑</h2>
@@ -166,7 +203,7 @@
         </div>
     </div>
 
-    <!-- FOLLOW / REVIEW MODAL -->
+    <!-- 5. FOLLOW / REVIEW MODAL -->
     <div class="modal-overlay" id="followModal">
         <div class="modal-content glass">
             <h2>Support Us ❤️</h2>
@@ -201,4 +238,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
+    
