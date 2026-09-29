@@ -19,13 +19,21 @@ function updateCartUI() {
     totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
     let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
+    // Update Bottom Floating Cart
     document.getElementById("total-price").innerText = totalAmount;
     document.getElementById("cart-count").innerText = totalItems;
-    document.getElementById("modal-total").innerText = totalAmount;
-    document.getElementById("takeaway-total").innerText = totalAmount;
+    
+    // Update Dine-In Modal Total
+    let modalTotal = document.getElementById("modal-total");
+    if(modalTotal) modalTotal.innerText = totalAmount;
+    
+    // Update Take Away Modal Total
+    let takeawayTotal = document.getElementById("takeaway-total");
+    if(takeawayTotal) takeawayTotal.innerText = totalAmount;
 
+    // Show/Hide Cart Bar
     const bottomCart = document.getElementById("bottomCart");
-    bottomCart.style.display = cart.length > 0 ? "flex" : "none";
+    if(bottomCart) bottomCart.style.display = cart.length > 0 ? "flex" : "none";
 
     let summaryHtml = "";
     cart.forEach(item => {
@@ -36,8 +44,12 @@ function updateCartUI() {
         summaryHtml = "<p>Cart is empty</p>";
     }
     
-    document.getElementById("order-summary").innerHTML = summaryHtml;
-    document.getElementById("takeaway-summary").innerHTML = summaryHtml;
+    // Update Summary in both Modals
+    let orderSummary = document.getElementById("order-summary");
+    if(orderSummary) orderSummary.innerHTML = summaryHtml;
+    
+    let takeawaySummary = document.getElementById("takeaway-summary");
+    if(takeawaySummary) takeawaySummary.innerHTML = summaryHtml;
 }
 
 // Clear Cart
@@ -68,7 +80,7 @@ function getWhatsAppLink(message) {
     return `https://api.whatsapp.com/send?phone=${phoneNo}&text=${encodeURIComponent(message)}`;
 }
 
-// --- NEW: TAKE AWAY LOGIC --- //
+// --- TAKE AWAY LOGIC --- //
 function showTakeawayPayment() {
     let name = document.getElementById("takeName").value;
     let phone = document.getElementById("takePhone").value;
@@ -128,7 +140,7 @@ function sendOrderToWhatsApp() {
     clearCart();
 }
 
-// --- CANCEL SENDER --- //
+// --- CANCEL ORDER --- //
 function sendCancelToWhatsApp() {
     let name = document.getElementById("cancelName").value;
     let table = document.getElementById("cancelTable").value;
@@ -178,4 +190,4 @@ function submitReview() {
         alert("Your choices are copied! Paste them in Google Reviews.");
         window.open("https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4", "_top"); 
     });
-}
+                                 }
